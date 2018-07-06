@@ -1,5 +1,4 @@
 # DRGL-X
-{DRGL} Chain data
 
 {DRÆGONGLASS} blockchain data  
 
