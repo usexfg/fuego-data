@@ -1,6 +1,6 @@
 ![The Long Night Is Coming](https://raw.githubusercontent.com/ZirtysPerzys/DRGL-X/master/12164.png)
 
-# DRGL Blockchain
+# DRGL Blockchain & logo/images
 
 First time users can now download this file for faster sync times or more importantly for any issues regarding initial blockchain syncing.
 Some users have reported issues syncing getting stuck at block 63312 -As we enforced a "mixin" limit (18) for transactions in a recent upgrade release, we found out this early network block contains a transaction with a mixin-count of 101....yes thats one hundred and one.. and was certainly a private transaction ;)   
