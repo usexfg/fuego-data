@@ -11,7 +11,7 @@ However some GUI wallet nodes hang at this block during their maiden chain sync.
 
 ---------------------------
 ### To bootstrap blockchain:
-Just extract the contents of the zip file from the link above into your .dragonglass folder- a 'hidden' folder in your user home base directory.  
+Just extract the contents of the zip file, from the link above, into your .dragonglass folder- a 'hidden' folder in your user home base directory.  
 (Access hidden files and folders by pressing "Alt + h" )
 
 For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\dragonglass
