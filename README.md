@@ -1,12 +1,10 @@
-![The Long Night Is Coming](https://raw.githubusercontent.com/ZirtysPerzys/DRGL-X/master/12164.png)
+# XFG Blockchain 
 
-# DRGL Blockchain & Icons 
-
-First time users can now download this file for reasons of speed / convenience - use [this download of the DRGL blockchain...](https://github.com/ZirtysPerzys/DRGL-X/releases)
+For reasons of speed / convenience, users can now download this file of [the Fandom GOLD blockchain...](https://github.com/ZirtysPerzys/XFG-data/releases)
 
 ---------------------------
 ### To bootstrap blockchain:
-Just extract the contents of the zip file, from the link above, into your .dragonglass folder- a 'hidden' folder in your user home base directory.  
+Just extract the contents of the zip file, from the link above, into your .fandomgold folder- a 'hidden' folder in your user home base directory.  
 (Access hidden files and folders by pressing "Alt + h" )
 
-For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\dragonglass
+For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\fandomgold
