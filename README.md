@@ -1,4 +1,4 @@
-<img src=https://raw.githubusercontent.com/FandomGold/XFG-data/master/fangobanner.png></img>
+<img src=https://raw.githubusercontent.com/FandomGold/XFG-data/master/Fango_gif01.GIF></img>
 # XFG Blockchain 
 
 For reasons of speed / convenience, users can download a large majority of [the Fandom GOLD blockchain...](https://github.com/FandomGold/XFG-data/releases/tag/V7)
