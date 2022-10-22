@@ -1,4 +1,4 @@
-<img src=https://raw.githubusercontent.com/FandomGold/XFG-data/master/Fango_gif01.GIF></img>
+<img src=https://raw.githubusercontent.com/usexfg/fuego-data/master/images/fuegoline.gif></img>
 # XFG Blockchain Data
 
 For reasons of speed / convenience, users can download a large majority of [the Fango blockchain...](https://github.com/FandomGold/XFG-data/releases/tag/V7)
