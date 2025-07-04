@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Data Loading</title>
+</head>
+<body>
+    <h1>Testing XFG Data Loading</h1>
+    <div id="status">Loading...</div>
+    <div id="result"></div>
+
+    <script>
+    async function testDataLoading() {
+        const statusDiv = document.getElementById('status');
+        const resultDiv = document.getElementById('result');
+        
+        try {
+            statusDiv.innerHTML = 'Fetching data...';
+            const response = await fetch('./xfg-real-complete-enhanced-v2.json');
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const text = await response.text();
+            const lines = text.trim().split('\n');
+            
+            statusDiv.innerHTML = `✅ Success! Found ${lines.length} lines`;
+            
+            // Parse first few lines
+            const parsedLines = lines.slice(0, 3).map(line => {
+                try {
+                    return JSON.parse(line);
+                } catch (e) {
+                    return `Error parsing: ${line}`;
+                }
+            });
+            
+            resultDiv.innerHTML = `<pre>${JSON.stringify(parsedLines, null, 2)}</pre>`;
+            
+        } catch (error) {
+            statusDiv.innerHTML = `❌ Error: ${error.message}`;
+            resultDiv.innerHTML = `<pre>Error details: ${error.stack}</pre>`;
+        }
+    }
+    
+    // Start test when page loads
+    document.addEventListener('DOMContentLoaded', testDataLoading);
+    </script>
+</body>
+</html> 
