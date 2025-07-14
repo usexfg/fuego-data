@@ -1,4 +1,4 @@
-<img src=https://raw.githubusercontent.com/usexfg/fuego-data/master/images/fuegoline.gif></img>
+<img src=https://raw.githubusercontent.com/usexfg/fuego-data/master/fuego-images/fuegoline.gif></img>
 # XFG Blockchain Data
 
 For reasons of speed / convenience, users can download a large majority of [the Fuego blockchain...](https://github.com/usexfg/fuego-data/releases/tag/V7)
@@ -12,4 +12,4 @@ For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\fuego
 
 ## Fuego Images
 
-See [Images](https://github.com/usexfg/fuego-data/tree/master/images)
+See [Images](https://github.com/usexfg/fuego-data/tree/master/fuego-images)
