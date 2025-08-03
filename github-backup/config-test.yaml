@@ -1,0 +1,56 @@
+# Test Configuration for Decentralized Backup
+github:
+  organization: "your-organization-name"
+  token: "${GITHUB_TOKEN}"
+  api_url: "https://api.github.com"
+
+# Repository Filters
+repositories:
+  include_private: false
+  include_archived: false
+  include_forks: false
+  exclude_patterns: []
+  include_patterns: []
+
+# Decentralized Backup Targets
+backup_targets:
+  ipfs:
+    enabled: true
+    api_url: "http://localhost:5001"
+    gateway_url: "https://ipfs.io"
+    pin_on_upload: true
+    compression: true
+    sync_interval_hours: 24
+    
+  radicle:
+    enabled: true
+    rad_home: "~/.rad"
+    create_project: true
+    sync_interval_hours: 24
+    
+  dat:
+    enabled: true
+    dat_path: "~/.dat"
+    create_archive: true
+    sync_interval_hours: 24
+
+# Local Backup
+local_backup:
+  enabled: true
+  path: "./backups"
+  keep_versions: 3
+  compress: true
+
+# Logging
+logging:
+  level: "INFO"
+  file: "backup.log"
+  max_size_mb: 10
+  backup_count: 3
+
+# Performance
+performance:
+  max_concurrent_backups: 2
+  timeout_seconds: 300
+  retry_attempts: 3
+  retry_delay_seconds: 60 

@@ -1,0 +1,70 @@
+name: GitHub Organization Backup
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+  push:
+    branches: [ main ]
+    paths: [ 'config.yaml', 'backup_organization.py' ]
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Configure Git
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+    - name: Run backup
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
+        BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+        BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
+        AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+        EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+        ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
+      run: |
+        python backup_organization.py
+        
+    - name: Upload backup logs
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: backup-logs
+        path: |
+          backup.log
+          backups/
+        retention-days: 30
+        
+    - name: Notify on failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        channel: '#backup-alerts'
+        text: 'GitHub Organization Backup failed! Check the logs for details.' 

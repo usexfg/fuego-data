@@ -1,0 +1,135 @@
+# GitHub Organization Backup Configuration
+# Copy this file to config.yaml and customize with your settings
+
+# GitHub Organization Settings
+github:
+  organization: "your-organization-name"
+  token: "${GITHUB_TOKEN}"  # Set via environment variable
+  api_url: "https://api.github.com"  # Change for GitHub Enterprise
+  
+# Repository Filters
+repositories:
+  include_private: true
+  include_archived: false
+  include_forks: false
+  exclude_patterns:
+    - "temp-*"
+    - "test-*"
+    - "deprecated-*"
+  include_patterns: []  # Empty means include all
+
+# Backup Targets
+backup_targets:
+  # Centralized Git Hosting Services
+  gitlab:
+    enabled: true
+    url: "https://gitlab.com"  # Change for self-hosted GitLab
+    token: "${GITLAB_TOKEN}"
+    group_id: "your-gitlab-group-id"
+    create_mirrors: true
+    sync_interval_hours: 6
+    
+  gitea:
+    enabled: false
+    url: "https://gitea.your-domain.com"
+    token: "${GITEA_TOKEN}"
+    organization: "your-gitea-org"
+    create_mirrors: true
+    sync_interval_hours: 12
+    
+  bitbucket:
+    enabled: false
+    url: "https://api.bitbucket.org"
+    username: "${BITBUCKET_USERNAME}"
+    app_password: "${BITBUCKET_APP_PASSWORD}"
+    workspace: "your-workspace"
+    create_mirrors: true
+    sync_interval_hours: 24
+    
+  azure_devops:
+    enabled: false
+    organization: "your-azure-org"
+    project: "your-project"
+    token: "${AZURE_DEVOPS_TOKEN}"
+    create_mirrors: true
+    sync_interval_hours: 24
+
+  # Decentralized Git Hosting Services
+  radicle:
+    enabled: false
+    rad_home: "~/.rad"  # Radicle home directory
+    node_id: "your-node-id"  # Optional: specific node ID
+    seed_nodes: []  # Optional: list of seed nodes
+    create_project: true  # Create new projects or push to existing
+    sync_interval_hours: 12
+    
+  gittorrent:
+    enabled: false
+    tracker_url: "http://localhost:6881"  # GitTorrent tracker URL
+    port: 6882  # Port for torrent seeding
+    upload_limit: 0  # Upload limit in KB/s (0 = unlimited)
+    sync_interval_hours: 24
+    
+  ipfs:
+    enabled: false
+    api_url: "http://localhost:5001"  # IPFS API endpoint
+    gateway_url: "https://ipfs.io"  # IPFS gateway for access
+    pin_on_upload: true  # Pin content to prevent garbage collection
+    compression: true  # Compress archives before upload
+    sync_interval_hours: 24
+    
+  dat:
+    enabled: false
+    dat_path: "~/.dat"  # Dat storage directory
+    create_archive: true  # Create new Dat archives
+    share_key: null  # Optional: specific share key
+    sync_interval_hours: 24
+
+# Local Backup Settings
+local_backup:
+  enabled: true
+  path: "./backups"
+  keep_versions: 5
+  compress: true
+
+# Notification Settings
+notifications:
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: "${EMAIL_USERNAME}"
+    password: "${EMAIL_PASSWORD}"
+    recipients: ["admin@your-org.com"]
+    
+  slack:
+    enabled: false
+    webhook_url: "${SLACK_WEBHOOK_URL}"
+    channel: "#backup-alerts"
+    
+  webhook:
+    enabled: false
+    url: "${WEBHOOK_URL}"
+    secret: "${WEBHOOK_SECRET}"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "backup.log"
+  max_size_mb: 100
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Performance Settings
+performance:
+  max_concurrent_backups: 5
+  timeout_seconds: 300
+  retry_attempts: 3
+  retry_delay_seconds: 60
+
+# Security Settings
+security:
+  encrypt_backups: false
+  encryption_key: "${ENCRYPTION_KEY}"
+  verify_ssl: true
+  ssh_key_path: "~/.ssh/id_rsa" 
