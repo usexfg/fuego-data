@@ -10,6 +10,10 @@ Just extract the contents of the zip file, from the link above, into your .fuego
 
 For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\fuego
 ---------------------------
+# XFG Price History 
+
+See [xfgpricedump](https://github.com/usexfg/fuego-data/tree/master/xfgpricedump)
+
 # Fuego Images
 
 See [Images](https://github.com/usexfg/fuego-data/tree/master/fuego-images)
