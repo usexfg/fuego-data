@@ -9,7 +9,11 @@ Just extract the contents of the zip file, from the link above, into your .fuego
 (Access hidden files and folders by pressing "Alt + h" )
 
 For Windows users the location will be C:\Users\USERNAME\AppData\Roaming\fuego
-
-## Fuego Images
+---------------------------
+# Fuego Images
 
 See [Images](https://github.com/usexfg/fuego-data/tree/master/fuego-images)
+
+# GOBS
+
+See 
