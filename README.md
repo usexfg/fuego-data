@@ -1,4 +1,4 @@
-<img height=520 width=520 src=https://github.com/usexfg/fuego-data/blob/5dd4c9ee4fff46c2a0f1ac2b217a8de66188007b/fuego-images/fuegold.png></img>
+<img height=800 width=800 align=center src=https://github.com/usexfg/fuego-data/blob/e267a88c3788b06c0e66a34456b663a632d78d76/fuego-images/image-download-17.png></img>
 # XFG Blockchain Data
 
 For reasons of speed / convenience, users can download a large majority of [the Fuego blockchain...](https://github.com/usexfg/fuego-data/releases/tag/V7)
